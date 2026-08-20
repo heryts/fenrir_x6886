@@ -779,6 +779,20 @@ DEVICES = [
                 match_mode=MatchMode.ALL,
                 description='Force boot state to always be set to green',
             ),
+            'additonal_green_state': PatchStage(
+                'additional_green_state',
+                pattern='c8 03 00 d0 00 c9 0d b9 c0 03 5f d6',
+                replacement='c8 03 00 d0 1f 29 0d b9 c0 03 5f d6',
+                match_mode=MatchMode.ALL,
+                description='Additional green state with custom recovery',
+            ),   
+            'remove_orange_state': PatchStage(
+                'remove_orange_state',
+                pattern='fd 7b be a9 f3 0b 00 f9 fd 03 00 91 c8 03 00 d0 08 c9 4d b9 1f 05 00 71 20 02 00 54 1f 0d 00 71 e0 01 00 54 1f 09 00 71 61 04 00 54 30 b0 ff 97 2c b0 ff 97 1f 00 00 71 08 a4 80 1a 00 7d 01 13 e1 03 1f 2a d2 af ff 97 f3 02 00 f0 e0 02 00 f0 73 8a 3f 91 00 4c 3f 91 0f 00 00 14',
+                replacement='fd 7b be a9 f3 0b 00 f9 fd 03 00 91 c8 03 00 d0 08 29 4d b9 1f 05 00 71 20 02 00 54 1f 0d 00 71 e0 01 00 54 1f 09 00 71 61 04 00 54 30 b0 ff 97 2c b0 ff 97 1f 00 00 71 08 a4 80 1a 00 7d 01 13 e1 03 1f 2a d2 af ff 97 f3 02 00 f0 e0 02 00 f0 73 8a 3f 91 00 4c 3f 91 0f 00 00 14',
+                match_mode=MatchMode.ALL,
+                description='Remove orange state on boot screen',
+            ),
             'bypass_security_control': PatchStage(
                 'bypass_security_control',
                 pattern='e8 0b 40 b9 1f 0d 00 71 21 01 00 54',
